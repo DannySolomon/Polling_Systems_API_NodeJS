@@ -42,6 +42,8 @@ module.exports.questionView = async (req, res) => {
       return res.send("Error in retriving the question ", err);
     });
 
+  console.log(question.options);
+
   return res.send(question);
 };
 
@@ -59,7 +61,7 @@ module.exports.questionDelete = async (req, res) => {
     return res.send("Error in finding options for the question ");
   });
   if (options.length != 0) {
-    const isVotesthere = false;
+    let isVotesthere = false;
     for (let option of options) {
       if (option.votes > 0) {
         isVotesthere = true;
