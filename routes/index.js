@@ -3,9 +3,6 @@ const router = express.Router();
 const questionController = require("../controllers/question_controller");
 const optionController = require("../controllers/option_controller");
 
-router.get("/", (req, res) => {
-  res.send("Hello");
-});
 router.get("/questions", questionController.questionsView); //to view all questions
 router.get("/questions/:question_id", questionController.questionView); //view a question
 router.post("/questions/create", questionController.questionCreate); //create a question

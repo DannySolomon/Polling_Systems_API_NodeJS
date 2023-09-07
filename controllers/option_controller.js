@@ -1,6 +1,7 @@
 const Options = require("../models/Options");
 const Questions = require("../models/Questions");
 
+//creating an option
 module.exports.optionCreate = async (req, res) => {
   const question = await Questions.findById(req.params.question_id).catch(
     (err) => {
