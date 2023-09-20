@@ -24,7 +24,7 @@ module.exports.optionCreate = async (req, res) => {
     return res.send("Could not push options into questions");
   });
 
-  return res.send("Option created successfully");
+  return res.send(`Option created successfully, option_id: ${newOption.id}`);
 };
 
 //addvote
