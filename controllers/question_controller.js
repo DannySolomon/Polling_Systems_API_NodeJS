@@ -44,8 +44,6 @@ module.exports.questionView = async (req, res) => {
       return res.send("Error in retriving the question ", err);
     });
 
-  console.log(question.options);
-
   return res.send(question);
 };
 
