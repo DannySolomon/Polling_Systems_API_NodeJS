@@ -1,1 +1,4 @@
 node_modules/
+
+# ignore all directories with the name secrets
+secrets/
