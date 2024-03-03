@@ -8,6 +8,9 @@ const mongodb = require("./config/mongoose");
 // For parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+// for letting app use json from the body of the request
+app.use(express.json());
+
 //setting ejs as view engine
 app.set("view engine", "ejs");
 
