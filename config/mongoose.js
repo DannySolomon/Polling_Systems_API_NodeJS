@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
 
-//db config
-const db = require("../secrets/secret_keys").MongoURI;
+require("dotenv").config();
 
 //connect to Mongo
 mongoose
-  .connect(db, { useNewUrlParser: true })
+  .connect(process.env.MongoURI, { useNewUrlParser: true })
   .then(() => {
     console.log("Mongo Atlas Connected");
   })
