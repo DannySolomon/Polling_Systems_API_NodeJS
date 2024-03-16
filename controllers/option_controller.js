@@ -75,7 +75,7 @@ module.exports.optionAddVote = async (req, res) => {
       .json({ error: "Counld not add vote to option", message: err });
   });
 
-  return res.status(200).json({ message: "Successfully votedS" });
+  return res.status(200).json({ message: "Successfully voted" });
 };
 
 //option delete
@@ -90,6 +90,10 @@ module.exports.optionDelete = async (req, res) => {
       .status(500)
       .json({ error: "Error in finding the option", message: err });
   });
+
+  if (!option) {
+    return res.status(400).json({ error: "Option ID does not exist" });
+  }
 
   if (option.votes > 0) {
     return res
