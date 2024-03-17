@@ -33,7 +33,8 @@ module.exports.questionCreate = async (req, res) => {
   });
 
   return res.status(200).json({
-    message: `Question created successfully, question_id: ${newquestion.id}`,
+    message: "Question created successfully",
+    question_id: newquestion.id,
   });
 };
 

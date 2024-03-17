@@ -48,7 +48,7 @@ module.exports.optionCreate = async (req, res) => {
 
   return res
     .status(200)
-    .send(`Option created successfully, option_id: ${newOption.id}`);
+    .json({ message: "Option created successfully", option_id: newOption.id });
 };
 
 //addvote

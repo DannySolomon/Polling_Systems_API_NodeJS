@@ -5,9 +5,10 @@ const router = express.Router();
 const userController = require("../controllers/user_controller");
 
 //route explaining the api
-router.get("/", (req, res) => {
-  res.render("home");
-});
+//no home route
+// router.get("/", (req, res) => {
+//   res.render("home");
+// });
 
 //users related route
 router.use("/users", require("./users"));

@@ -149,7 +149,7 @@ module.exports.authenticateToken = (req, res, next) => {
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, function (err, decoded) {
     if (err) {
       return res
-        .sendStatus(403)
+        .status(403)
         .json({ error: "Invalid token sent", message: err });
     }
     next();
@@ -167,15 +167,13 @@ module.exports.refreshToken = async (req, res) => {
   try {
     decodedToken = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET);
   } catch (err) {
-    return res
-      .sendStatus(403)
-      .json({ error: "Invalid token sent", message: err });
+    return res.status(403).json({ error: "Invalid token sent", message: err });
   }
 
   let user_tokens = await Token.findOne({ refresh_token: token });
   if (!user_tokens) {
     return res
-      .sendStatus(403)
+      .status(403)
       .json({ error: "Expired old token sent", message: err });
   }
 
